@@ -1,0 +1,41 @@
+@model FinleySiebert.StageBpv.ViewModels.Student.UserRegisterViewModel
+@{
+    ViewData["Title"] = "Login als student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container login">
+    <div class="row">
+        <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+
+            <div class="row">
+                <div class="input-field col m6">
+                    <i class="material-icons prefix">perm_contact_calendar</i>
+                    <input asp-for="StudentNumber" id="LeerlingNummer" type="text" class="validate">
+                    <label asp-for="StudentNumber" for="LeerlingNummer">Leerlingnummer</label>
+                    <span asp-validation-for="StudentNumber" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col m6">
+                        <i class="material-icons prefix">lock</i>
+                        <input asp-for="Password" id="password" type="password" class="validate">
+                        <label asp-for="Password" for="password">Wachtwoord</label>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="waves-effect waves-light btn-large">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+
+
+
+
+
+

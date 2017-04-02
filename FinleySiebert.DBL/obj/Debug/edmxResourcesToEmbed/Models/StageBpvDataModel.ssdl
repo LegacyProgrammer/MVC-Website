@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StageBpvDataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="StageBpvDataModelStoreContainer">
+    <EntitySet Name="Permission" EntityType="StageBpvDataModel.Store.Permission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Role" EntityType="StageBpvDataModel.Store.Role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="StageBpvDataModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfilePage" EntityType="StageBpvDataModel.Store.ProfilePage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Education" EntityType="StageBpvDataModel.Store.Education" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="School" EntityType="StageBpvDataModel.Store.School" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Group" EntityType="StageBpvDataModel.Store.Group" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Internship" EntityType="StageBpvDataModel.Store.Internship" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PermissionRole" EntityType="StageBpvDataModel.Store.PermissionRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="StageBpvDataModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InternshipProfilePage1" EntityType="StageBpvDataModel.Store.InternshipProfilePage1" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_PermissionRole_Permission" Association="StageBpvDataModel.Store.FK_PermissionRole_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="PermissionRole" EntitySet="PermissionRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PermissionRole_Role" Association="StageBpvDataModel.Store.FK_PermissionRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="PermissionRole" EntitySet="PermissionRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="StageBpvDataModel.Store.FK_UserRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="StageBpvDataModel.Store.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole1" Association="StageBpvDataModel.Store.UserRole1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="ProfilePageUser" Association="StageBpvDataModel.Store.ProfilePageUser">
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="GroupEducation" Association="StageBpvDataModel.Store.GroupEducation">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Education" EntitySet="Education" />
+    </AssociationSet>
+    <AssociationSet Name="EducationSchool" Association="StageBpvDataModel.Store.EducationSchool">
+      <End Role="Education" EntitySet="Education" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="GroupProfilePage" Association="StageBpvDataModel.Store.GroupProfilePage">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+    </AssociationSet>
+    <AssociationSet Name="InternshipProfilePage" Association="StageBpvDataModel.Store.InternshipProfilePage">
+      <End Role="Internship" EntitySet="Internship" />
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InternshipProfilePage1_Internship" Association="StageBpvDataModel.Store.FK_InternshipProfilePage1_Internship">
+      <End Role="Internship" EntitySet="Internship" />
+      <End Role="InternshipProfilePage1" EntitySet="InternshipProfilePage1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InternshipProfilePage1_ProfilePage" Association="StageBpvDataModel.Store.FK_InternshipProfilePage1_ProfilePage">
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+      <End Role="InternshipProfilePage1" EntitySet="InternshipProfilePage1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsBanned" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+    <Property Name="ProfilePageId" Type="int" Nullable="false" />
+    <Property Name="PrimaryRole_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfilePage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Dob" Type="datetime" Nullable="true" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Zip" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Kvk" Type="int" Nullable="true" />
+    <Property Name="Btw" Type="int" Nullable="true" />
+    <Property Name="StudentNumber" Type="int" Nullable="true" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Level" Type="int" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="true" />
+    <Property Name="School_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Zip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Education_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Internship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="true" />
+    <Property Name="CompanyInternship_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PermissionRole">
+    <Key>
+      <PropertyRef Name="Permission_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="Permission_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="User_Id" />
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Role_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InternshipProfilePage1">
+    <Key>
+      <PropertyRef Name="InternshipSchool_Id" />
+      <PropertyRef Name="StudentInternship_Id" />
+    </Key>
+    <Property Name="InternshipSchool_Id" Type="int" Nullable="false" />
+    <Property Name="StudentInternship_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UserRole1">
+    <End Role="User" Type="StageBpvDataModel.Store.User" Multiplicity="*" />
+    <End Role="Role" Type="StageBpvDataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="PrimaryRole_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfilePageUser">
+    <End Role="ProfilePage" Type="StageBpvDataModel.Store.ProfilePage" Multiplicity="1" />
+    <End Role="User" Type="StageBpvDataModel.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilePage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ProfilePageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroupEducation">
+    <End Role="Group" Type="StageBpvDataModel.Store.Group" Multiplicity="*" />
+    <End Role="Education" Type="StageBpvDataModel.Store.Education" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Education">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Group">
+        <PropertyRef Name="Education_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EducationSchool">
+    <End Role="Education" Type="StageBpvDataModel.Store.Education" Multiplicity="*" />
+    <End Role="School" Type="StageBpvDataModel.Store.School" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="School_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GroupProfilePage">
+    <End Role="Group" Type="StageBpvDataModel.Store.Group" Multiplicity="1" />
+    <End Role="ProfilePage" Type="StageBpvDataModel.Store.ProfilePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfilePage">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InternshipProfilePage">
+    <End Role="Internship" Type="StageBpvDataModel.Store.Internship" Multiplicity="*" />
+    <End Role="ProfilePage" Type="StageBpvDataModel.Store.ProfilePage" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilePage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Internship">
+        <PropertyRef Name="CompanyInternship_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PermissionRole_Permission">
+    <End Role="Permission" Type="StageBpvDataModel.Store.Permission" Multiplicity="1" />
+    <End Role="PermissionRole" Type="StageBpvDataModel.Store.PermissionRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PermissionRole">
+        <PropertyRef Name="Permission_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PermissionRole_Role">
+    <End Role="PermissionRole" Type="StageBpvDataModel.Store.PermissionRole" Multiplicity="*" />
+    <End Role="Role" Type="StageBpvDataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PermissionRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="StageBpvDataModel.Store.User" Multiplicity="1" />
+    <End Role="UserRole" Type="StageBpvDataModel.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="UserRole" Type="StageBpvDataModel.Store.UserRole" Multiplicity="*" />
+    <End Role="Role" Type="StageBpvDataModel.Store.Role" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InternshipProfilePage1_Internship">
+    <End Role="Internship" Type="StageBpvDataModel.Store.Internship" Multiplicity="1" />
+    <End Role="InternshipProfilePage1" Type="StageBpvDataModel.Store.InternshipProfilePage1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Internship">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InternshipProfilePage1">
+        <PropertyRef Name="InternshipSchool_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InternshipProfilePage1_ProfilePage">
+    <End Role="InternshipProfilePage1" Type="StageBpvDataModel.Store.InternshipProfilePage1" Multiplicity="*" />
+    <End Role="ProfilePage" Type="StageBpvDataModel.Store.ProfilePage" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilePage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InternshipProfilePage1">
+        <PropertyRef Name="StudentInternship_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

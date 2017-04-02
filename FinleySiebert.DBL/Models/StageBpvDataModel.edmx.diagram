@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a17f17cd86f2451eb5ae1bb8b3562a28" Name="Diagram1" >
+        <EntityTypeShape EntityType="StageBpvDataModel.Permission" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="StageBpvDataModel.Role" Width="1.5" PointX="7.5" PointY="4.75" />
+        <AssociationConnector Association="StageBpvDataModel.PermissionRole" />
+        <EntityTypeShape EntityType="StageBpvDataModel.User" Width="1.5" PointX="5.25" PointY="4.5" />
+        <AssociationConnector Association="StageBpvDataModel.UserRole" />
+        <AssociationConnector Association="StageBpvDataModel.UserRole1" />
+        <EntityTypeShape EntityType="StageBpvDataModel.ProfilePage" Width="1.5" PointX="3" PointY="3.875" />
+        <AssociationConnector Association="StageBpvDataModel.ProfilePageUser" />
+        <EntityTypeShape EntityType="StageBpvDataModel.Education" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="StageBpvDataModel.School" Width="1.5" PointX="5.25" PointY="9.375" />
+        <EntityTypeShape EntityType="StageBpvDataModel.Group" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="StageBpvDataModel.GroupEducation" />
+        <AssociationConnector Association="StageBpvDataModel.EducationSchool" />
+        <AssociationConnector Association="StageBpvDataModel.GroupProfilePage" />
+        <EntityTypeShape EntityType="StageBpvDataModel.Internship" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="StageBpvDataModel.InternshipProfilePage" />
+        <AssociationConnector Association="StageBpvDataModel.InternshipProfilePage1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

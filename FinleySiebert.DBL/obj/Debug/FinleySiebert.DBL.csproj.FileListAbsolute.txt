@@ -1,0 +1,28 @@
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.dll.config
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.pdb
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\EntityFramework.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\EntityFramework.xml
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.dll
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.pdb
+C:\Users\Finley\documents\visual studio 2017\Projects\FinleySiebert.StageBpv\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.csprojResolveAssemblyReference.cache
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.dll.config
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\FinleySiebert.DBL.pdb
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\EntityFramework.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\EntityFramework.xml
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.csprojResolveAssemblyReference.cache
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.dll
+C:\Users\Legacy\Desktop\MVC Website\FinleySiebert.DBL\obj\Debug\FinleySiebert.DBL.pdb

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="StageBpvDataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="StageBpvDataModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Permission" EntityType="StageBpvDataModel.Permission" />
+    <EntitySet Name="Role" EntityType="StageBpvDataModel.Role" />
+    <AssociationSet Name="PermissionRole" Association="StageBpvDataModel.PermissionRole">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <EntitySet Name="User" EntityType="StageBpvDataModel.User" />
+    <AssociationSet Name="UserRole" Association="StageBpvDataModel.UserRole">
+      <End Role="User" EntitySet="User" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole1" Association="StageBpvDataModel.UserRole1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Role" EntitySet="Role" />
+    </AssociationSet>
+    <EntitySet Name="ProfilePage" EntityType="StageBpvDataModel.ProfilePage" />
+    <AssociationSet Name="ProfilePageUser" Association="StageBpvDataModel.ProfilePageUser">
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Education" EntityType="StageBpvDataModel.Education" />
+    <EntitySet Name="School" EntityType="StageBpvDataModel.School" />
+    <EntitySet Name="Group" EntityType="StageBpvDataModel.Group" />
+    <AssociationSet Name="GroupEducation" Association="StageBpvDataModel.GroupEducation">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Education" EntitySet="Education" />
+    </AssociationSet>
+    <AssociationSet Name="EducationSchool" Association="StageBpvDataModel.EducationSchool">
+      <End Role="Education" EntitySet="Education" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <AssociationSet Name="GroupProfilePage" Association="StageBpvDataModel.GroupProfilePage">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+    </AssociationSet>
+    <EntitySet Name="Internship" EntityType="StageBpvDataModel.Internship" />
+    <AssociationSet Name="InternshipProfilePage" Association="StageBpvDataModel.InternshipProfilePage">
+      <End Role="Internship" EntitySet="Internship" />
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+    </AssociationSet>
+    <AssociationSet Name="InternshipProfilePage1" Association="StageBpvDataModel.InternshipProfilePage1">
+      <End Role="Internship" EntitySet="Internship" />
+      <End Role="ProfilePage" EntitySet="ProfilePage" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+    <NavigationProperty Name="Role" Relationship="StageBpvDataModel.PermissionRole" FromRole="Permission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="IsBanned" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Permission" Relationship="StageBpvDataModel.PermissionRole" FromRole="Role" ToRole="Permission" />
+    <NavigationProperty Name="User" Relationship="StageBpvDataModel.UserRole" FromRole="Role" ToRole="User" />
+    <NavigationProperty Name="PrimaryRole" Relationship="StageBpvDataModel.UserRole1" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <Association Name="PermissionRole">
+    <End Type="StageBpvDataModel.Permission" Role="Permission" Multiplicity="*" />
+    <End Type="StageBpvDataModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="String" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" />
+    <Property Name="Updated" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="StageBpvDataModel.UserRole" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="PrimaryRole" Relationship="StageBpvDataModel.UserRole1" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="ProfilePage" Relationship="StageBpvDataModel.ProfilePageUser" FromRole="User" ToRole="ProfilePage" />
+    <Property Name="ProfilePageId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="UserRole">
+    <End Type="StageBpvDataModel.User" Role="User" Multiplicity="*" />
+    <End Type="StageBpvDataModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <Association Name="UserRole1">
+    <End Type="StageBpvDataModel.User" Role="User" Multiplicity="*" />
+    <End Type="StageBpvDataModel.Role" Role="Role" Multiplicity="1" />
+  </Association>
+  <EntityType Name="ProfilePage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Logo" Type="String" Nullable="true" />
+    <Property Name="Dob" Type="DateTime" Nullable="true" />
+    <Property Name="Description" Type="String" Nullable="true" />
+    <Property Name="Address" Type="String" Nullable="true" />
+    <Property Name="Phone" Type="String" Nullable="true" />
+    <Property Name="Zip" Type="String" Nullable="true" />
+    <Property Name="Kvk" Type="Int32" Nullable="true" />
+    <Property Name="Btw" Type="Int32" Nullable="true" />
+    <Property Name="StudentNumber" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="User" Relationship="StageBpvDataModel.ProfilePageUser" FromRole="ProfilePage" ToRole="User" />
+    <NavigationProperty Name="Group" Relationship="StageBpvDataModel.GroupProfilePage" FromRole="ProfilePage" ToRole="Group" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="InternshipBedrijf" Relationship="StageBpvDataModel.InternshipProfilePage" FromRole="ProfilePage" ToRole="Internship" />
+    <NavigationProperty Name="InternshipSchool" Relationship="StageBpvDataModel.InternshipProfilePage1" FromRole="ProfilePage" ToRole="Internship" />
+  </EntityType>
+  <Association Name="ProfilePageUser">
+    <End Type="StageBpvDataModel.ProfilePage" Role="ProfilePage" Multiplicity="1" />
+    <End Type="StageBpvDataModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProfilePage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="ProfilePageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Level" Type="Int32" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" />
+    <Property Name="Updated" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="Group" Relationship="StageBpvDataModel.GroupEducation" FromRole="Education" ToRole="Group" />
+    <NavigationProperty Name="School" Relationship="StageBpvDataModel.EducationSchool" FromRole="Education" ToRole="School" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Logo" Type="String" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" />
+    <Property Name="Phone" Type="String" Nullable="false" />
+    <Property Name="Zip" Type="String" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Education" Relationship="StageBpvDataModel.EducationSchool" FromRole="School" ToRole="Education" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Education" Relationship="StageBpvDataModel.GroupEducation" FromRole="Group" ToRole="Education" />
+    <NavigationProperty Name="ProfilePage" Relationship="StageBpvDataModel.GroupProfilePage" FromRole="Group" ToRole="ProfilePage" />
+  </EntityType>
+  <Association Name="GroupEducation">
+    <End Type="StageBpvDataModel.Group" Role="Group" Multiplicity="*" />
+    <End Type="StageBpvDataModel.Education" Role="Education" Multiplicity="1" />
+  </Association>
+  <Association Name="EducationSchool">
+    <End Type="StageBpvDataModel.Education" Role="Education" Multiplicity="*" />
+    <End Type="StageBpvDataModel.School" Role="School" Multiplicity="1" />
+  </Association>
+  <Association Name="GroupProfilePage">
+    <End Type="StageBpvDataModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="StageBpvDataModel.ProfilePage" Role="ProfilePage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfilePage">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Internship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" />
+    <Property Name="Created" Type="DateTime" Nullable="false" />
+    <Property Name="Updated" Type="DateTime" Nullable="true" />
+    <NavigationProperty Name="CompanyInternship" Relationship="StageBpvDataModel.InternshipProfilePage" FromRole="Internship" ToRole="ProfilePage" />
+    <NavigationProperty Name="StudentInternship" Relationship="StageBpvDataModel.InternshipProfilePage1" FromRole="Internship" ToRole="ProfilePage" />
+  </EntityType>
+  <Association Name="InternshipProfilePage">
+    <End Type="StageBpvDataModel.Internship" Role="Internship" Multiplicity="*" />
+    <End Type="StageBpvDataModel.ProfilePage" Role="ProfilePage" Multiplicity="1" />
+  </Association>
+  <Association Name="InternshipProfilePage1">
+    <End Type="StageBpvDataModel.Internship" Role="Internship" Multiplicity="*" />
+    <End Type="StageBpvDataModel.ProfilePage" Role="ProfilePage" Multiplicity="*" />
+  </Association>
+</Schema>

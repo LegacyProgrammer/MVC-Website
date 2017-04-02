@@ -1,0 +1,61 @@
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.title-card{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.registeren {
+    margin-top: 100px;
+}
+
+.margin {
+    margin-top: 50px;
+}
+
+.button {
+    margin-left: 15px;
+    margin-top: 42px;
+}
+
+.nav-wrapper {
+    background-color: #2f4f4f;
+}
+
+.page-footer {
+    background-color: #2f4f4f;
+}
+
+.profileBlok {
+    height: 400px;
+    width: 40%;
+    margin-left: 100px;
+}
+.profiletext
+{
+    margin-left: 5px;
+}
+.leeuwlogo
+{
+    background-image: url("../image/leeuwenborgh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: auto;
+    width: auto;
+}
+
+
+
+
+
+
+
